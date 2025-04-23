@@ -10,7 +10,7 @@
       "logo": "dragon.png",
       "fondo": {
         "usar_imagen": true,
-        "url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1684&q=80",
+        "url": "https://wallpapercave.com/wp/wp14516282.jpg",
         "opacidad": 0.8
       },
       "iconos": {
@@ -75,7 +75,7 @@
   ],
   "logros": [
     {
-      "nombre": "Lvl del gremio ",
+      "nombre": "LvL del Gremio ",
       "actual": 23,
       "maximo": 30,
       "icono": ""
