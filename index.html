@@ -620,28 +620,184 @@
             background-size: 200% 100%;
         }
 
-        /* Responsive */
+        /* Responsive mejorado */
         @media (max-width: 768px) {
+            /* Estilos generales para móviles */
+            body {
+                font-size: 16px;
+            }
+
+            /* Ajustes de texto */
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            /* Ajustes de secciones */
+            .section {
+                padding: 40px 15px;
+                margin: 20px 0;
+            }
+
+            /* Ajustes de grid */
             .grid {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
 
             .grid-item {
                 width: 100%;
                 max-width: 320px;
+                padding: 20px;
             }
 
+            /* Ajustes de pergamino */
             .parchment-box {
-                padding: 30px 20px;
+                padding: 25px 15px;
+                margin: 0 10px;
             }
 
+            /* Ajustes de botones */
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            /* Ajustes de hero */
+            .hero {
+                padding: 80px 15px;
+            }
+
+            .hero img {
+                width: 120px;
+            }
+
+            /* Ajustes de galería */
+            .gallery {
+                gap: 15px;
+            }
+
+            .gallery-item {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Ajustes de contador de eventos */
+            .timer-container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .timer-item {
+                min-width: 70px;
+            }
+
+            .timer-value {
+                font-size: 1.8rem;
+            }
+
+            /* Ajustes de logros */
+            .achievement {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .achievement-icon {
+                margin: 0 auto 15px;
+            }
+
+            /* Ajustes de divider */
+            .divider {
+                margin: 20px auto;
+            }
+        }
+
+        /* Ajustes específicos para móviles pequeños */
+        @media (max-width: 480px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             h2 {
-                font-size: 1.7rem;
+                font-size: 1.3rem;
+            }
+
+            h2::before, h2::after {
+                width: 20px;
+                height: 20px;
+                margin: 0 8px;
+            }
+
+            .hero {
+                padding: 60px 10px;
+            }
+
+            .hero img {
+                width: 100px;
+            }
+
+            .section {
+                padding: 30px 10px;
+            }
+
+            .timer-container {
+                justify-content: space-around;
+            }
+
+            .timer-item {
+                min-width: 60px;
+                margin-bottom: 10px;
+            }
+
+            .timer-value {
+                font-size: 1.5rem;
+                padding: 5px 0;
+            }
+
+            .btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            /* Ajustes de imágenes para móviles pequeños */
+            .gallery-frame img {
+                height: 150px;
+            }
+
+            .event-image {
+                max-height: 200px;
+                object-fit: cover;
+            }
+
+            /* Mejorar espaciado en móviles */
+            .parchment-box {
+                padding: 20px 12px;
+            }
+
+            .parchment-box p, .parchment-box ul {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .parchment-box li {
+                margin-bottom: 8px;
+            }
+
+            /* Ajustar bordes decorativos en móviles */
+            .section::before,
+            .section::after {
+                width: 60px;
+                height: 60px;
             }
         }
         /* Barra de navegación estilo HUD */
@@ -772,6 +928,523 @@
         .status-value {
             font-size: 12px;
             color: #ffffff;
+        }
+
+        /* Menú hamburguesa para móviles - Estilo medieval */
+        .menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 1010;
+            position: relative;
+            margin-right: -5px;
+            background-color: rgba(20, 30, 60, 0.7);
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 0 8px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            outline: none;
+            /* Forma de escudo medieval */
+            clip-path: polygon(
+                0% 15%,
+                15% 0%,
+                85% 0%,
+                100% 15%,
+                100% 85%,
+                85% 100%,
+                15% 100%,
+                0% 85%
+            );
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .menu-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), transparent);
+            z-index: -1;
+        }
+
+        .menu-toggle:hover, .menu-toggle:focus {
+            background-color: rgba(212, 175, 55, 0.3);
+            border-color: #f0e6d2;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* Evitar desplazamiento cuando el menú está abierto */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Líneas del menú hamburguesa estilizadas como espadas */
+        .menu-toggle span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 60%;
+            left: 20%;
+            background-color: #d4af37;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            transform-origin: center;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.8);
+        }
+
+        .menu-toggle span:nth-child(1) {
+            top: 30%;
+        }
+
+        .menu-toggle span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .menu-toggle span:nth-child(3) {
+            bottom: 30%;
+        }
+
+        /* Efecto de espadas cruzadas cuando está activo */
+        .menu-toggle.active {
+            background-color: rgba(212, 175, 55, 0.35);
+            border-color: #f0e6d2;
+        }
+
+        .menu-toggle.active span {
+            background-color: #f0e6d2;
+            width: 70%;
+            left: 15%;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            bottom: auto;
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        /* Estilos de menús desplegables temáticos */
+        /* 1. Estilo Pergamino */
+        .menu-pergamino {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%23c89b3c' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-color: #f8f0d8 !important;
+            border: 2px solid #8b7513 !important;
+            border-radius: 0 !important;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4) !important;
+            transform-origin: top center;
+            animation: unrollParchment 0.5s ease-out !important;
+        }
+
+        .menu-pergamino::before {
+            content: 'Pergamino Real' !important;
+            color: #5c3c00 !important;
+            text-shadow: 0 0 5px rgba(92, 60, 0, 0.5) !important;
+        }
+
+        .menu-pergamino .hud-btn {
+            color: #f0e6d2 !important;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            border: 1px solid rgba(139, 117, 19, 0.6) !important;
+            text-shadow: 0 0 5px rgba(139, 117, 19, 0.5) !important;
+            font-family: 'IM Fell English', serif !important;
+            clip-path: none !important;
+        }
+
+        @keyframes unrollParchment {
+            0% { transform: scaleY(0); opacity: 0; }
+            100% { transform: scaleY(1); opacity: 1; }
+        }
+
+        /* 2. Estilo Escudo Heráldico */
+        .menu-escudo {
+            background-color: rgba(20, 30, 60, 0.95) !important;
+            border: 3px solid #d4af37 !important;
+            clip-path: polygon(
+                0% 0%,
+                100% 0%,
+                100% 75%,
+                50% 100%,
+                0% 75%
+            ) !important;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.3) !important;
+            animation: shieldAppear 0.5s ease-out !important;
+        }
+
+        .menu-escudo::before {
+            content: 'Escudo Real' !important;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20L10 10zm10 10L0 20h20z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E") !important;
+        }
+
+        .menu-escudo .hud-btn {
+            color: #d4af37 !important;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5) !important;
+            border: 1px solid rgba(212, 175, 55, 0.5) !important;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            font-family: 'Cinzel', serif !important;
+            clip-path: none !important;
+        }
+
+        @keyframes shieldAppear {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* 3. Estilo Libro de Hechizos */
+        .menu-libro {
+            background-color: #2a1a0a !important;
+            border: 4px double #d4af37 !important;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 0, 0, 0.6) !important;
+            transform-origin: center left;
+            animation: openBook 0.6s ease-out !important;
+        }
+
+        .menu-libro::before {
+            content: 'Libro Arcano' !important;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H5z'/%3E%3C/g%3E%3C/svg%3E") !important;
+        }
+
+        .menu-libro .hud-btn {
+            color: #f0e6d2 !important;
+            border: 1px solid rgba(212, 175, 55, 0.3) !important;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            font-family: 'IM Fell English', serif !important;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5) !important;
+            clip-path: none !important;
+        }
+
+        @keyframes openBook {
+            0% { transform: rotateY(-90deg); opacity: 0; }
+            100% { transform: rotateY(0); opacity: 1; }
+        }
+
+        /* 4. Estilo Taberna Medieval */
+        .menu-taberna {
+            background-color: #5c3c00 !important;
+            border: 8px solid #8b7513 !important;
+            border-radius: 0 !important;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6) !important;
+            animation: swingSign 0.5s ease-out !important;
+        }
+
+        .menu-taberna::before {
+            content: 'Taberna del Rey' !important;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%23f8f0d8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E") !important;
+        }
+
+        .menu-taberna .hud-btn {
+            color: #f8f0d8 !important;
+            border: 2px solid rgba(248, 240, 216, 0.3) !important;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            font-family: 'Cinzel', serif !important;
+            font-weight: bold !important;
+            clip-path: none !important;
+        }
+
+        @keyframes swingSign {
+            0% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(0); }
+        }
+
+        /* 5. Estilo Portal Mágico */
+        .menu-portal {
+            background-color: rgba(30, 10, 60, 0.9) !important;
+            border: 2px solid #9966cc !important;
+            box-shadow: 0 0 30px rgba(153, 102, 204, 0.6), inset 0 0 20px rgba(153, 102, 204, 0.4) !important;
+            animation: portalOpen 0.7s ease-out !important;
+        }
+
+        .menu-portal::before {
+            content: 'Portal Arcano' !important;
+            color: #e0d0ff !important;
+            text-shadow: 0 0 8px rgba(153, 102, 204, 0.8) !important;
+            background: radial-gradient(circle, rgba(153, 102, 204, 0.3) 0%, transparent 70%) !important;
+            animation: portalPulse 3s infinite alternate !important;
+        }
+
+        .menu-portal .hud-btn {
+            color: #e0d0ff !important;
+            border: 1px solid rgba(153, 102, 204, 0.4) !important;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            text-shadow: 0 0 8px rgba(153, 102, 204, 0.8) !important;
+            font-family: 'Cinzel', serif !important;
+            clip-path: none !important;
+        }
+
+        @keyframes portalOpen {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.1); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes portalPulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Responsive para la barra de navegación */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            /* Estilos para el menú móvil */
+            .hud-container {
+                position: relative;
+            }
+
+            .hud-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background-color: rgba(20, 30, 60, 0.98);
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+                                 linear-gradient(135deg, rgba(30, 40, 70, 0.98), rgba(20, 30, 60, 0.98));
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 20px;
+                transition: all 0.4s ease;
+                z-index: 1005;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.7), -2px 0 10px rgba(212, 175, 55, 0.3);
+                border-left: 3px solid #d4af37;
+                overflow-y: auto;
+                pointer-events: auto;
+                /* Bordes decorativos estilo medieval */
+                border-image: linear-gradient(to bottom, #d4af37, #8b7513, #d4af37) 1;
+            }
+
+            /* Logo del dragón en el menú */
+            .hud-menu::after {
+                content: '';
+                display: block;
+                width: 80px;
+                height: 80px;
+                margin: 20px auto 30px;
+                background-image: url('dragon.png');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7));
+            }
+
+            /* Título del menú con estilo medieval */
+            .hud-menu::before {
+                content: 'Menú de Navegación';
+                position: absolute;
+                top: 30px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                font-family: 'Cinzel', serif;
+                font-size: 22px;
+                font-weight: bold;
+                color: #d4af37;
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.7), 0 0 20px rgba(212, 175, 55, 0.4);
+                padding: 15px 0;
+                margin-bottom: 10px;
+                background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20L10 10zm10 10L0 20h20z' fill='%23d4af37' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+                border-bottom: 2px solid #d4af37;
+                box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+                z-index: 1006;
+            }
+
+            .hud-menu.active {
+                right: 0;
+            }
+
+            /* Estilos para los elementos del menú - Estilo medieval/gamer */
+            .hud-menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-top: 100px; /* Espacio para el título */
+            }
+
+            .hud-menu li {
+                width: 90%;
+                margin: 12px 0;
+                text-align: center;
+                opacity: 0;
+                transform: translateX(20px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+                position: relative;
+                z-index: 1007;
+            }
+
+            .hud-menu.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            /* Efecto de aparición escalonada */
+            .hud-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+            .hud-menu.active li:nth-child(2) { transition-delay: 0.15s; }
+            .hud-menu.active li:nth-child(3) { transition-delay: 0.2s; }
+            .hud-menu.active li:nth-child(4) { transition-delay: 0.25s; }
+            .hud-menu.active li:nth-child(5) { transition-delay: 0.3s; }
+            .hud-menu.active li:nth-child(6) { transition-delay: 0.35s; }
+
+            /* Separadores decorativos entre elementos */
+            .hud-menu li::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 10%;
+                width: 80%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #d4af37, transparent);
+                box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+            }
+
+            /* Iconos decorativos para cada elemento del menú */
+            .hud-menu li::before {
+                content: '\2694'; /* Unicode para espadas cruzadas */
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #d4af37;
+                font-size: 16px;
+                opacity: 0.8;
+                text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            }
+
+            .hud-menu li:last-child::after {
+                display: none;
+            }
+
+            /* Estilos para los botones del menú - Estilo medieval/gamer */
+            .hud-btn {
+                display: block;
+                width: 100%;
+                padding: 15px 15px 15px 35px; /* Espacio para el icono */
+                font-size: 18px;
+                font-weight: bold;
+                letter-spacing: 1.5px;
+                color: #f0e6d2;
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+                background-color: rgba(0, 0, 0, 0.8); /* Fondo negro */
+                border: 2px solid #d4af37;
+                transition: all 0.3s ease;
+                margin: 0;
+                position: relative;
+                z-index: 1008;
+                text-align: left;
+                /* Forma de escudo medieval para los botones */
+                clip-path: polygon(
+                    0% 10%,
+                    10% 0%,
+                    90% 0%,
+                    100% 10%,
+                    100% 90%,
+                    90% 100%,
+                    10% 100%,
+                    0% 90%
+                );
+            }
+
+            /* Efecto de brillo en los bordes */
+            .hud-btn::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), transparent 60%);
+                z-index: -1;
+                clip-path: inherit;
+            }
+
+            .hud-btn:hover, .hud-btn:active, .hud-btn:focus {
+                background-color: rgba(0, 0, 0, 0.9);
+                border-color: #f0e6d2;
+                transform: translateY(-2px) scale(1.03);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.6);
+                color: #d4af37;
+            }
+
+            /* Efecto de brillo al pasar el mouse */
+            .hud-btn:hover::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: transparent;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                clip-path: inherit;
+                animation: buttonGlow 1.5s infinite alternate;
+            }
+
+            @keyframes buttonGlow {
+                0% { opacity: 0.3; }
+                100% { opacity: 0.8; }
+            }
+
+            /* Ocultar el estado en móviles */
+            .hud-status {
+                display: none;
+            }
+
+            /* Overlay para el menú móvil - Estilo medieval/gamer */
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/svg%3E");
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                z-index: 999; /* Menor que el menú para que no lo cubra */
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                pointer-events: auto; /* Asegura que los clics sean capturados por el overlay */
+            }
+
+            .overlay.active {
+                display: block;
+                opacity: 1;
+                animation: overlayFadeIn 0.4s ease forwards;
+            }
+
+            @keyframes overlayFadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hud-container {
+                padding: 8px 15px;
+            }
+
+            .hud-icon {
+                width: 30px;
+                height: 30px;
+            }
         }
 
         /* Galería de imágenes estilo pergamino */
@@ -1131,7 +1804,13 @@
             <div class="hud-logo">
                 <img src="dragon.png" alt="Logo" class="hud-icon">
             </div>
-            <ul class="hud-menu">
+            <!-- Botón de menú hamburguesa para móviles -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="hud-menu" id="hudMenu">
                 <li><a href="#" class="hud-btn" data-sound="click">Inicio</a></li>
                 <li><a href="#quienes-somos" class="hud-btn" data-sound="click">Gremio</a></li>
                 <li><a href="#estamentos" class="hud-btn" data-sound="click">Estamentos</a></li>
@@ -1150,6 +1829,8 @@
             </div>
         </div>
     </nav>
+    <!-- Overlay para el menú móvil -->
+    <div class="overlay" id="menuOverlay"></div>
     <section class="hero">
         <img src="dragon.png" alt="Logo de la orden">
         <h1>ORDEN DEL DRAGÓN NOCTURNO</h1>
@@ -1241,7 +1922,7 @@
                     <span class="timer-label">Segundos</span>
                 </div>
             </div>
-            <h3>Asalto a la Fortaleza de Hierro</h3>
+            <h3>Incurciones de Gremio</h3>
             <p>Únete a la batalla por el control del territorio más valioso del reino.</p>
             <a href="#" class="btn" data-sound="click">Registrarse</a>
         </div>
@@ -1256,10 +1937,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#d4af37"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>
                 </div>
                 <div class="achievement-content">
-                    <h3>Conquistas</h3>
+                    <h3>Lvl del gremio</h3>
                     <div class="achievement-bar">
-                        <div class="achievement-fill" style="width: 85%;"></div>
-                        <span class="achievement-value">17/20</span>
+                        <div class="achievement-fill" style="width: 76.6%;"></div>
+                        <span class="achievement-value">23/30</span>
                     </div>
                 </div>
             </div>
@@ -1268,10 +1949,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#d4af37"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>
                 </div>
                 <div class="achievement-content">
-                    <h3>Batallas Ganadas</h3>
+                    <h3>Miembros</h3>
                     <div class="achievement-bar">
-                        <div class="achievement-fill" style="width: 65%;"></div>
-                        <span class="achievement-value">65/100</span>
+                        <div class="achievement-fill" style="width: 8%;"></div>
+                        <span class="achievement-value">8/100</span>
                     </div>
                 </div>
             </div>
@@ -1291,7 +1972,7 @@
     </section>
 
     <footer>
-        © 2025 Orden del Dragón Nocturno | Hermandad en Throne and Liberty
+        © 2025 Orden del Dragón Nocturno | Hermandad en Throne and Liberty | Servidor: <span class="servidor">Solisium</span>
     </footer>
 
     <!-- Scripts -->
@@ -1299,10 +1980,21 @@
         // Cargar datos desde el archivo de configuración
         async function cargarConfiguracion() {
             try {
+                // Usar un timestamp para evitar caché
+                const timestamp = new Date().getTime();
+
                 // Intentar cargar el archivo mejorado primero
                 try {
                     console.log('Intentando cargar config_mejorado.json...');
-                    const respuestaMejorada = await fetch('config_mejorado.json?v=' + new Date().getTime());
+                    const respuestaMejorada = await fetch(`config_mejorado.json?nocache=${timestamp}`, {
+                        method: 'GET',
+                        headers: {
+                            'Cache-Control': 'no-cache, no-store, must-revalidate',
+                            'Pragma': 'no-cache',
+                            'Expires': '0'
+                        }
+                    });
+
                     if (respuestaMejorada.ok) {
                         console.log('config_mejorado.json cargado correctamente');
                         const datos = await respuestaMejorada.json();
@@ -1317,7 +2009,15 @@
 
                 // Si no existe, cargar el archivo original
                 console.log('Intentando cargar config.json...');
-                const respuesta = await fetch('config.json?v=' + new Date().getTime());
+                const respuesta = await fetch(`config.json?nocache=${timestamp}`, {
+                    method: 'GET',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                });
+
                 if (!respuesta.ok) {
                     throw new Error('No se pudo cargar la configuración');
                 }
@@ -1334,153 +2034,250 @@
         // Actualizar la interfaz con los datos de configuración
         async function actualizarInterfaz() {
             const config = await cargarConfiguracion();
-            if (!config) return;
+            if (!config) {
+                console.error('No se pudo cargar la configuración');
+                return;
+            }
+
+            console.log('Actualizando interfaz con la configuración cargada...');
 
             // Aplicar configuración de apariencia si existe
             if (config.apariencia) {
+                console.log('Aplicando configuración de apariencia...');
                 aplicarApariencia(config.apariencia);
             }
 
             // Actualizar información del gremio
-            document.querySelector('.hero h1').textContent = config.gremio.nombre;
-            document.querySelector('.hero p em').textContent = `"${config.gremio.lema}"`;
-            document.querySelector('#quienes-somos .parchment-box p').innerHTML =
-                config.gremio.descripcion.includes('Throne and Liberty') ?
-                config.gremio.descripcion :
-                `Somos una hermandad comprometida con la gloria, el honor y el conocimiento dentro del universo de <strong>Throne and Liberty</strong>. ${config.gremio.descripcion}`;
+            console.log('Actualizando información del gremio...');
+            if (config.gremio) {
+                if (config.gremio.nombre) {
+                    document.querySelector('.hero h1').textContent = config.gremio.nombre;
+                }
 
-            // Actualizar año en el footer si existe
-            if (config.gremio.anio_fundacion) {
-                const footerText = document.querySelector('footer').textContent;
-                document.querySelector('footer').textContent = footerText.replace(/\d{4}/, config.gremio.anio_fundacion);
+                if (config.gremio.lema) {
+                    document.querySelector('.hero p em').textContent = `"${config.gremio.lema}"`;
+                }
+
+                if (config.gremio.descripcion) {
+                    document.querySelector('#quienes-somos .parchment-box p').innerHTML =
+                        config.gremio.descripcion.includes('Throne and Liberty') ?
+                        config.gremio.descripcion :
+                        `Somos una hermandad comprometida con la gloria, el honor y el conocimiento dentro del universo de <strong>Throne and Liberty</strong>. ${config.gremio.descripcion}`;
+                }
+
+                // Actualizar año en el footer si existe
+                if (config.gremio.anio_fundacion) {
+                    const footerElement = document.querySelector('footer');
+                    const footerText = footerElement.innerHTML;
+                    const nuevoFooter = footerText.replace(/\d{4}/, config.gremio.anio_fundacion);
+                    footerElement.innerHTML = nuevoFooter;
+                }
+
+                // Actualizar servidor en el footer si existe
+                if (config.gremio.servidor) {
+                    const servidorElement = document.querySelector('.servidor');
+                    if (servidorElement) {
+                        servidorElement.textContent = config.gremio.servidor;
+                    }
+                }
             }
 
             // Actualizar miembros
-            const porcentajeMiembros = (config.miembros.actual / config.miembros.maximo) * 100;
-            document.querySelector('.status-fill').style.width = `${porcentajeMiembros}%`;
-            document.querySelector('.status-value').textContent = `${config.miembros.actual}/${config.miembros.maximo}`;
+            console.log('Actualizando información de miembros...');
+            if (config.miembros) {
+                const porcentajeMiembros = (config.miembros.actual / config.miembros.maximo) * 100;
+                const statusFill = document.querySelector('.status-fill');
+                if (statusFill) {
+                    statusFill.style.width = `${porcentajeMiembros}%`;
+                }
 
-            // Mostrar/ocultar estado de reclutamiento si existe
-            if (config.miembros.hasOwnProperty('reclutamiento_abierto')) {
-                const unirseBtn = document.querySelector('#unirse .parchment-box .btn');
-                if (!config.miembros.reclutamiento_abierto) {
-                    unirseBtn.style.opacity = '0.5';
-                    unirseBtn.textContent = 'Reclutamiento Cerrado';
-                    unirseBtn.style.pointerEvents = 'none';
+                const statusValue = document.querySelector('.status-value');
+                if (statusValue) {
+                    statusValue.textContent = `${config.miembros.actual}/${config.miembros.maximo}`;
+                }
+
+                // Mostrar/ocultar estado de reclutamiento si existe
+                if (config.miembros.hasOwnProperty('reclutamiento_abierto')) {
+                    const unirseBtn = document.querySelector('#unirse .parchment-box .btn');
+                    if (unirseBtn) {
+                        if (!config.miembros.reclutamiento_abierto) {
+                            unirseBtn.style.opacity = '0.5';
+                            unirseBtn.textContent = 'Reclutamiento Cerrado';
+                            unirseBtn.style.pointerEvents = 'none';
+                        } else {
+                            unirseBtn.style.opacity = '1';
+                            unirseBtn.textContent = 'Aplicar en Discord';
+                            unirseBtn.style.pointerEvents = 'auto';
+                        }
+                    }
                 }
             }
 
             // Actualizar estamentos
-            const estamentosContainer = document.querySelector('#estamentos .grid');
-            estamentosContainer.innerHTML = '';
+            console.log('Actualizando estamentos...');
+            if (config.estamentos && Array.isArray(config.estamentos)) {
+                const estamentosContainer = document.querySelector('#estamentos .grid');
+                if (estamentosContainer) {
+                    estamentosContainer.innerHTML = '';
 
-            config.estamentos.forEach(estamento => {
-                let iconoHTML = '';
-                if (estamento.icono) {
-                    iconoHTML = `<div class="estamento-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#d4af37"><path d="${estamento.icono}"/></svg></div>`;
+                    config.estamentos.forEach(estamento => {
+                        let iconoHTML = '';
+                        if (estamento.icono) {
+                            iconoHTML = `<div class="estamento-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#d4af37"><path d="${estamento.icono}"/></svg></div>`;
+                        }
+
+                        const estamentoHTML = `
+                            <div class="grid-item">
+                                ${iconoHTML}
+                                <h3>${estamento.nombre}</h3>
+                                <p>${estamento.descripcion}</p>
+                            </div>
+                        `;
+                        estamentosContainer.innerHTML += estamentoHTML;
+                    });
                 }
-
-                const estamentoHTML = `
-                    <div class="grid-item">
-                        ${iconoHTML}
-                        <h3>${estamento.nombre}</h3>
-                        <p>${estamento.descripcion}</p>
-                    </div>
-                `;
-                estamentosContainer.innerHTML += estamentoHTML;
-            });
+            }
 
             // Actualizar requisitos
-            const requisitosLista = document.querySelector('#unirse .parchment-box ul');
-            requisitosLista.innerHTML = '';
+            console.log('Actualizando requisitos...');
+            if (config.requisitos && Array.isArray(config.requisitos)) {
+                const requisitosLista = document.querySelector('#unirse .parchment-box ul');
+                if (requisitosLista) {
+                    requisitosLista.innerHTML = '';
 
-            config.requisitos.forEach(requisito => {
-                const requisitoHTML = `<li>${requisito}</li>`;
-                requisitosLista.innerHTML += requisitoHTML;
-            });
+                    config.requisitos.forEach(requisito => {
+                        const requisitoHTML = `<li>${requisito}</li>`;
+                        requisitosLista.innerHTML += requisitoHTML;
+                    });
+                }
+            }
 
             // Actualizar enlaces
-            document.querySelector('#unirse .parchment-box .btn').href = config.enlaces.discord;
-
-            // Añadir enlaces adicionales si existen
-            if (Object.keys(config.enlaces).length > 1) {
-                let enlacesHTML = '<div class="social-links">';
-
-                for (const [plataforma, url] of Object.entries(config.enlaces)) {
-                    if (plataforma !== 'discord' && url) {
-                        enlacesHTML += `<a href="${url}" class="social-link" target="_blank">${plataforma}</a>`;
-                    }
+            console.log('Actualizando enlaces...');
+            if (config.enlaces) {
+                const unirseBtn = document.querySelector('#unirse .parchment-box .btn');
+                if (unirseBtn && config.enlaces.discord) {
+                    unirseBtn.href = config.enlaces.discord;
                 }
 
-                enlacesHTML += '</div>';
+                // Añadir enlaces adicionales si existen
+                if (Object.keys(config.enlaces).length > 1) {
+                    // Verificar si ya existen enlaces sociales para no duplicarlos
+                    const existingSocialLinks = document.querySelector('.social-links');
+                    if (existingSocialLinks) {
+                        existingSocialLinks.remove();
+                    }
 
-                if (enlacesHTML !== '<div class="social-links"></div>') {
-                    const footerElement = document.querySelector('footer');
-                    footerElement.innerHTML = enlacesHTML + footerElement.innerHTML;
+                    let enlacesHTML = '<div class="social-links">';
+
+                    for (const [plataforma, url] of Object.entries(config.enlaces)) {
+                        if (plataforma !== 'discord' && url) {
+                            enlacesHTML += `<a href="${url}" class="social-link" target="_blank">${plataforma}</a>`;
+                        }
+                    }
+
+                    enlacesHTML += '</div>';
+
+                    if (enlacesHTML !== '<div class="social-links"></div>') {
+                        const footerElement = document.querySelector('footer');
+                        if (footerElement) {
+                            footerElement.innerHTML = enlacesHTML + footerElement.innerHTML;
+                        }
+                    }
                 }
             }
 
             // Actualizar galería
-            const galeriaContainer = document.querySelector('#galeria .gallery');
-            galeriaContainer.innerHTML = '';
+            console.log('Actualizando galería...');
+            if (config.galeria && Array.isArray(config.galeria)) {
+                const galeriaContainer = document.querySelector('#galeria .gallery');
+                if (galeriaContainer) {
+                    galeriaContainer.innerHTML = '';
 
-            config.galeria.forEach(item => {
-                const galeriaHTML = `
-                    <div class="gallery-item">
-                        <div class="gallery-frame">
-                            <img src="${item.imagen}" alt="${item.titulo}">
-                        </div>
-                        <p>${item.titulo}</p>
-                    </div>
-                `;
-                galeriaContainer.innerHTML += galeriaHTML;
-            });
+                    config.galeria.forEach(item => {
+                        const galeriaHTML = `
+                            <div class="gallery-item">
+                                <div class="gallery-frame">
+                                    <img src="${item.imagen}" alt="${item.titulo}">
+                                </div>
+                                <p>${item.titulo}</p>
+                            </div>
+                        `;
+                        galeriaContainer.innerHTML += galeriaHTML;
+                    });
+                }
+            }
 
             // Actualizar logros
-            const logrosContainer = document.querySelector('#logros .achievements');
-            logrosContainer.innerHTML = '';
+            console.log('Actualizando logros...');
+            if (config.logros && Array.isArray(config.logros)) {
+                const logrosContainer = document.querySelector('#logros .achievements');
+                if (logrosContainer) {
+                    logrosContainer.innerHTML = '';
 
-            config.logros.forEach(logro => {
-                const porcentajeLogro = (logro.actual / logro.maximo) * 100;
-                const iconoPath = logro.icono || (config.apariencia?.imagenes?.iconos?.logros || "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z");
+                    config.logros.forEach(logro => {
+                        const porcentajeLogro = (logro.actual / logro.maximo) * 100;
+                        const iconoPath = logro.icono || (config.apariencia?.imagenes?.iconos?.logros || "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z");
 
-                const logroHTML = `
-                    <div class="achievement">
-                        <div class="achievement-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#d4af37"><path d="${iconoPath}"/></svg>
-                        </div>
-                        <div class="achievement-content">
-                            <h3>${logro.nombre}</h3>
-                            <div class="achievement-bar">
-                                <div class="achievement-fill" style="width: ${porcentajeLogro}%;"></div>
-                                <span class="achievement-value">${logro.actual}/${logro.maximo}</span>
+                        const logroHTML = `
+                            <div class="achievement">
+                                <div class="achievement-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#d4af37"><path d="${iconoPath}"/></svg>
+                                </div>
+                                <div class="achievement-content">
+                                    <h3>${logro.nombre}</h3>
+                                    <div class="achievement-bar">
+                                        <div class="achievement-fill" style="width: ${porcentajeLogro}%;"></div>
+                                        <span class="achievement-value">${logro.actual}/${logro.maximo}</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                `;
-                logrosContainer.innerHTML += logroHTML;
-            });
+                        `;
+                        logrosContainer.innerHTML += logroHTML;
+                    });
+                }
+            }
 
             // Actualizar eventos
-            if (config.eventos) {
+            console.log('Actualizando eventos...');
+            if (config.eventos && Array.isArray(config.eventos) && config.eventos.length > 0) {
                 // Si hay múltiples eventos, usar el primero para el contador
                 const primerEvento = config.eventos[0];
-                document.querySelector('#evento h2').textContent = primerEvento.nombre;
-                document.querySelector('#evento .event-timer h3').textContent = primerEvento.nombre;
-                document.querySelector('#evento .event-timer p').textContent = primerEvento.descripcion;
+                const eventoTitulo = document.querySelector('#evento h2');
+                const eventoNombre = document.querySelector('#evento .event-timer h3');
+                const eventoDescripcion = document.querySelector('#evento .event-timer p');
+
+                if (eventoTitulo) eventoTitulo.textContent = primerEvento.nombre;
+                if (eventoNombre) eventoNombre.textContent = primerEvento.nombre;
+                if (eventoDescripcion) eventoDescripcion.textContent = primerEvento.descripcion;
 
                 // Si hay una imagen para el evento, mostrarla
                 if (primerEvento.imagen) {
-                    const timerContainer = document.querySelector('#evento .event-timer');
-                    const imgHTML = `<img src="${primerEvento.imagen}" alt="${primerEvento.nombre}" class="event-image">`;
-                    timerContainer.insertAdjacentHTML('afterbegin', imgHTML);
+                    // Verificar si ya existe una imagen para no duplicarla
+                    const existingImage = document.querySelector('#evento .event-timer .event-image');
+                    if (existingImage) {
+                        existingImage.src = primerEvento.imagen;
+                    } else {
+                        const timerContainer = document.querySelector('#evento .event-timer');
+                        if (timerContainer) {
+                            const imgHTML = `<img src="${primerEvento.imagen}" alt="${primerEvento.nombre}" class="event-image">`;
+                            timerContainer.insertAdjacentHTML('afterbegin', imgHTML);
+                        }
+                    }
                 }
             } else if (config.evento) {
                 // Compatibilidad con la versión anterior
-                document.querySelector('#evento h2').textContent = config.evento.nombre;
-                document.querySelector('#evento .event-timer h3').textContent = config.evento.nombre;
-                document.querySelector('#evento .event-timer p').textContent = config.evento.descripcion;
+                const eventoTitulo = document.querySelector('#evento h2');
+                const eventoNombre = document.querySelector('#evento .event-timer h3');
+                const eventoDescripcion = document.querySelector('#evento .event-timer p');
+
+                if (eventoTitulo) eventoTitulo.textContent = config.evento.nombre;
+                if (eventoNombre) eventoNombre.textContent = config.evento.nombre;
+                if (eventoDescripcion) eventoDescripcion.textContent = config.evento.descripcion;
             }
+
+            console.log('Interfaz actualizada correctamente con los datos de configuración.');
+            return true;
         }
 
         // Función para aplicar configuración de apariencia
@@ -1605,18 +2402,147 @@
                 });
             });
 
+            // Configurar menú hamburguesa para móviles
+            const menuToggle = document.getElementById('menuToggle');
+            const hudMenu = document.getElementById('hudMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+
+            if (menuToggle && hudMenu && menuOverlay) {
+                console.log('Inicializando menú móvil...');
+
+                // Estilos de menú disponibles
+                const menuStyles = [
+                    'menu-pergamino',
+                    'menu-escudo',
+                    'menu-libro',
+                    'menu-taberna',
+                    'menu-portal'
+                ];
+
+                // Variable para rastrear el estilo actual
+                let currentMenuStyle = -1;
+
+                // Función para cambiar el estilo del menú
+                function changeMenuStyle() {
+                    // Eliminar todos los estilos anteriores
+                    menuStyles.forEach(style => {
+                        hudMenu.classList.remove(style);
+                    });
+
+                    // Seleccionar el siguiente estilo
+                    currentMenuStyle = (currentMenuStyle + 1) % menuStyles.length;
+
+                    // Aplicar el nuevo estilo
+                    hudMenu.classList.add(menuStyles[currentMenuStyle]);
+                    console.log(`Estilo de menú cambiado a: ${menuStyles[currentMenuStyle]}`);
+
+                    // Asegurarse de que el logo del dragón esté visible
+                    setTimeout(() => {
+                        const dragonLogo = document.createElement('img');
+                        dragonLogo.src = 'dragon.png';
+                        dragonLogo.className = 'menu-dragon-logo';
+                        dragonLogo.style.cssText = 'width: 80px; height: 80px; margin: 20px auto 30px; display: block; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7));';
+
+                        // Eliminar logo anterior si existe
+                        const oldLogo = hudMenu.querySelector('.menu-dragon-logo');
+                        if (oldLogo) {
+                            oldLogo.remove();
+                        }
+
+                        // Insertar el logo al principio del menú
+                        if (hudMenu.firstChild) {
+                            hudMenu.insertBefore(dragonLogo, hudMenu.firstChild);
+                        } else {
+                            hudMenu.appendChild(dragonLogo);
+                        }
+                    }, 100);
+                }
+
+                // Función para abrir el menú
+                function openMenu() {
+                    // Cambiar el estilo del menú cada vez que se abre
+                    changeMenuStyle();
+
+                    menuToggle.classList.add('active');
+                    hudMenu.classList.add('active');
+                    menuOverlay.classList.add('active');
+                    document.body.classList.add('menu-open');
+                    menuToggle.setAttribute('aria-expanded', 'true');
+                    console.log('Menú abierto');
+                }
+
+                // Función para cerrar el menú
+                function closeMenu() {
+                    menuToggle.classList.remove('active');
+                    hudMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    console.log('Menú cerrado');
+                }
+
+                // Función para alternar el menú
+                function toggleMenu() {
+                    if (menuToggle.classList.contains('active')) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                }
+
+                // Evento para el botón de menú
+                menuToggle.addEventListener('click', toggleMenu);
+
+                // Evento para el overlay
+                menuOverlay.addEventListener('click', closeMenu);
+
+                // Cerrar menú al hacer clic en un enlace
+                const menuLinks = hudMenu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        closeMenu();
+                    });
+                });
+
+                // Cerrar menú al presionar la tecla Escape
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && menuToggle.classList.contains('active')) {
+                        closeMenu();
+                    }
+                });
+
+                // Cerrar menú al cambiar el tamaño de la ventana a desktop
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768 && menuToggle.classList.contains('active')) {
+                        closeMenu();
+                    }
+                });
+
+                // Inicializar el estado del menú
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+
             // Configurar contador regresivo
+            console.log('Configurando contador regresivo...');
             const config = await cargarConfiguracion();
+            if (!config) {
+                console.error('No se pudo cargar la configuración para el contador');
+                return;
+            }
+
             const eventDate = new Date();
 
             // Usar la nueva estructura de eventos si existe
-            if (config?.eventos && config.eventos.length > 0) {
+            if (config.eventos && Array.isArray(config.eventos) && config.eventos.length > 0) {
+                console.log(`Configurando contador para el evento: ${config.eventos[0].nombre} - Días restantes: ${config.eventos[0].diasRestantes}`);
                 eventDate.setDate(eventDate.getDate() + config.eventos[0].diasRestantes);
-            } else if (config?.evento) {
+            } else if (config.evento) {
                 // Compatibilidad con la versión anterior
+                console.log(`Configurando contador para el evento (formato antiguo): ${config.evento.nombre} - Días restantes: ${config.evento.diasRestantes}`);
                 eventDate.setDate(eventDate.getDate() + config.evento.diasRestantes);
             } else {
                 // Valor por defecto
+                console.log('No se encontraron eventos en la configuración, usando valor por defecto (7 días)');
                 eventDate.setDate(eventDate.getDate() + 7);
             }
 
@@ -1646,6 +2572,16 @@
             // Actualizar el contador cada segundo
             updateTimer();
             setInterval(updateTimer, 1000);
+
+            // Ajustar el padding-top del hero para compensar la barra de navegación fija
+            function adjustHeroPadding() {
+                const navHeight = document.querySelector('.game-hud').offsetHeight;
+                document.querySelector('.hero').style.paddingTop = (navHeight + 80) + 'px';
+            }
+
+            // Ajustar al cargar y al cambiar el tamaño de la ventana
+            adjustHeroPadding();
+            window.addEventListener('resize', adjustHeroPadding);
         });
     </script>
 </body>
